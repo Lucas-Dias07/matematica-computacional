@@ -1,19 +1,27 @@
-valor_compra = 17
-valor_pago = 100
+botao = input("O botão de pedestres foi apertado? (sim/nao): ").lower()
 
-troco = valor_pago - valor_compra
+if botao == "nao":
+    print("Nenhum pedestre solicitou a travessia.")
+    print("O semáforo continua funcionando normalmente.")
 
-print("Valor da compra: R$", valor_compra)
-print("Valor pago: R$", valor_pago)
-print("Troco: R$", troco)
+else:
+    tempo_verde_pedestre = int(
+        input("Há quantos segundos o sinal de pedestres ficou verde? ")
+    )
 
-valores = [50, 20, 10, 5, 2, 1]
+    tempo_espera_carros = int(
+        input("Há quantos segundos os carros estão com o sinal verde? ")
+    )
 
-print("\nNotas e moedas para o troco:")
+    if tempo_verde_pedestre < 5:
+        print("Aguarde. O sinal de pedestres ficou verde há menos de 5 segundos.")
 
-for valor in valores:
-    quantidade = troco // valor
+    elif tempo_espera_carros < 10:
+        print("Aguarde. É necessário garantir um tempo mínimo para os carros.")
 
-    if quantidade > 0:
-        print(f"{quantidade} de R$ {valor}")
-        troco = troco % valor
+    else:
+        print("Atenção: o sinal dos carros ficará vermelho.")
+        print("Som de aviso para os pedestres.")
+        print("Sinal dos carros: VERMELHO")
+        print("Sinal dos pedestres: VERDE")
+        print("Pedestres podem atravessar.")
